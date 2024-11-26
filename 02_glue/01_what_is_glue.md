@@ -2,6 +2,7 @@
 - Think of glue it self as a data pipeline & the name itself tells you that it allows us to stick</br> various data engineering related aws services 
   together at the respective places of pipeline</br>
 - It's server less.
+- Behind the scenes, glue uses Apache Spark engine to distribute workloads across worker nodes, enabling faster transformations with in-memory processing.
 
 #### Catalog
 ![image](https://github.com/user-attachments/assets/20c6c6af-9616-4392-a7df-b806a0382bdd)
