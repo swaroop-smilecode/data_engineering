@@ -13,7 +13,7 @@ ndarry = np.array(my_list)
 
 #### How to represent 1-d, 2-d & 3d arrays in python
 Observe that 2-d array is nothing but matrix.
-![image](https://github.com/user-attachments/assets/b36189fb-49c3-4e22-b7f3-12c9ddad4495)
+![image](https://github.com/user-attachments/assets/265af33e-51d1-4131-b673-26814f50a6d3)
 
 #### Important functions of array object
 #### shape
