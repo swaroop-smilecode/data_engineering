@@ -36,12 +36,16 @@ Because kafka runs on top of Java, install java.</br>
 `sudo yum install java`
 
 --------------------------------------------------------------------------------------------------------------------------------
-#### Start Zoo-keeper:
+#### Start zoo keeper:
 - `cd kafka_2.12-3.9.0`
 - `bin/zookeeper-server-start.sh config/zookeeper.properties`
 
 --------------------------------------------------------------------------------------------------------------------------------
-#### Start Kafka-server:
+#### Note
+zoo keeper server has to be started before starting kafka server.
+
+--------------------------------------------------------------------------------------------------------------------------------
+#### Start Kafka server:
 - Open new tab in cmd
 - Again connect to EC2 machine
 - `cd kafka_2.12-3.9.0`
