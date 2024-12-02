@@ -41,10 +41,6 @@ Because kafka runs on top of Java, install java.</br>
 - `bin/zookeeper-server-start.sh config/zookeeper.properties`
 
 --------------------------------------------------------------------------------------------------------------------------------
-#### Note
-zoo keeper server has to be started before starting kafka server.
-
---------------------------------------------------------------------------------------------------------------------------------
 #### Start Kafka server:
 - Open new tab in cmd
 - Again connect to EC2 machine
@@ -60,6 +56,11 @@ zoo keeper server has to be started before starting kafka server.
   `ctrl + x`</br>
   `y`</br>
   `Enter`
+
+--------------------------------------------------------------------------------------------------------------------------------
+#### Note
+zoo keeper server has to be started before starting kafka server.
+
 --------------------------------------------------------------------------------------------------------------------------------
 #### Create the topic:
 - Open new tab in cmd
@@ -68,12 +69,3 @@ zoo keeper server has to be started before starting kafka server.
 - `bin/kafka-topics.sh --bootstrap-server 54.227.123.170:9092 --topic cricket --create --partitions 1 --replication-factor 1`
 
 --------------------------------------------------------------------------------------------------------------------------------
-#### Start Producer:
-`bin/kafka-console-producer.sh --topic cricket --bootstrap-server 54.227.123.170:9092`
-
---------------------------------------------------------------------------------------------------------------------------------
-#### Start Consumer:
-- Open new tab in cmd
-- Again connect to EC2 machine
-- `cd kafka_2.12-3.9.0`
-- `bin/kafka-console-consumer.sh --topic cricket --bootstrap-server 54.227.123.170:9092`
