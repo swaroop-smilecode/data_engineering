@@ -1,2 +1,2 @@
 #### Architecture
-![image](https://github.com/user-attachments/assets/3833afba-0d64-4cf1-9cfe-8c46ba7ceec3)
+![image](https://github.com/user-attachments/assets/35e84826-1711-4605-b3a0-ab39968b6225)
