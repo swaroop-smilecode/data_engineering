@@ -54,4 +54,26 @@ pip install --platform manylinux2014_x86_64 --target=python --implementation cp 
   That's where crawler comes into picture. It creates schema about the data present in different sources at single location,</br>
   so that you can run your query on that schema & behind the scenes,</br>
   crawler will go to different sources to fetch data & you no need to worry :)
+- Create glue crawler named `spotify_data_pipeline_crawler`.</br>
+  On the process of creation of crawler, create an database named `spotify_data_pipeline_crawled_database`</br>
+  where the crawled schema to be stored(Remember that the crawled schema is nothing but the tables without actual data).</br>
+- For one data source, one crawler needs to be created.</br>
+  For reading from s3, one crawler is needed & you can't use same crawler to read data from postgresql database.</br>
+  One more crawler needs to be created to read the data from another data source such as postgresql.</br>
+  But, all the crawlers can store data in single database & that's the point. You can execute SQL queires on that single database.</br>
+- Once you run the glue crawler, a table named `transformed_data` will be created inside `spotify_data_pipeline_crawled_database`.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#### <ins>Step 4(Data Analysing)</ins></br>
+- Open AWS athena service.
+- Choose `spotify_data_pipeline_crawled_database` database.
+- Choose `s3://spotify-data-pipeline-heidi/athena_analysed_data` to store analysed data.
+- Execute below query.
+  ```python
+  SELECT * FROM "spotify_data_pipeline_crawled_database"."transformed_data" limit 10;
+  ```
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#### <ins>Note(Folder structure of s3 bucket)</ins></br>
+![image](https://github.com/user-attachments/assets/43976dc3-7280-41c8-9e5b-64860bb8d794)
+
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
