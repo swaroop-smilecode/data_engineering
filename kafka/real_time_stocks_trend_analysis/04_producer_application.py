@@ -22,4 +22,4 @@ producer = KafkaProducer(bootstrap_servers=["54.227.123.170:9092"])  # change ip
 
 while True:
     producer.send("cricket", value=get_registered_user_data())
-    sleep(1)
+    sleep(4)
