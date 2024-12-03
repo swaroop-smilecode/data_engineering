@@ -3,8 +3,15 @@
 - While creating machine you need to associate an key pair with this.</br>
   For example, let's consider that you created a key pair named `ec2-key-pair.pem`.</br>
   The moment you create this key pair, one key is downloaded into your laptop. Keep it safe, that's needed to login into EC2 machine.
+- You need to take care of below things while creating EC2 instance. Rest everything can be left as default.</br>
+  key pair</br>
+  vpc</br>
+  subnet</br>
+  `enable` auto assign public IP option, if you are creating instance inside public subnet.</br>
+  security_group</br>
 - Create this machine in public subnet.</br>
-  Reason is, producers & consumers will connect to kafka server running inside this machine, through internet.
+  Reason is, producers & consumers will connect to kafka server running inside this machine, through internet.</br>
+  Since you are creating EC2 in public subnet, `enable` auto assign public IP option.
 --------------------------------------------------------------------------------------------------------------------------------
 #### Changes needed to security group associated with EC2 machine
 - Let's consider you want to connect to EC2 machine from `cmd`.</br>
