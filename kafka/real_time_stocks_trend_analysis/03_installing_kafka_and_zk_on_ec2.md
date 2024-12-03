@@ -1,19 +1,43 @@
 --------------------------------------------------------------------------------------------------------------------------------
-#### Create EC2 machine with amazon linux OS.
-- While creating machine you need to associate an key pair with this.</br>
-  For example, let's consider that you created a key pair named `ec2-key-pair.pem`.</br>
-  The moment you create this key pair, one key is downloaded into your laptop. Keep it safe, that's needed to login into EC2 machine.
+#### Overview.
+- In file name, i wrote zk. It means zoo keeper.
+- There is no separate installation needed for Zoo keeper. It comes along with kafka installation.
+- As shown in the architecture diagram, we need to start 4 servers.
+  1. Zoo keeper
+  2. Kafka cluster
+  3. Producer
+  4. Consumer
+- Think 🤔</br>
+  You can't start kafka server on `lambda`, because it needs to consume messages & broadcast them continuously.</br>
+  Where as lambda will stop it's work in some time.
+- So, this is what we are going to do.</br>
+  <ins>Step 1</ins></br>
+  Install kafka server on EC2(linux OS). Zoo keeper also get's installed along with it.</br>
+  After installation, will start Zoo keeper server first & then kafka server on same EC2 instance, but on different ports.</br>
+  <ins>Step 2</ins></br>
+  Then, will create an application named `register_user_application` on another EC2 instance. That's the producer.</br>
+  <ins>Step 3</ins></br>
+  Atleast will create an application named `data_analysis_application` on another EC2 instance. That's the consumer.</br>
+  This application is the data pipeline.
+- Will be running 4 servers which means, we also need to open 4 `cmd`'s</br>
+  Since we created EC2 instance in public seubnet, we can directly connect to it through cmd provided by aws itself.</br>
+  It's a simple process, since there is no need to provide key pair for authntication.
+--------------------------------------------------------------------------------------------------------------------------------
+#### Create EC2 instance(linux OS)
 - You need to take care of below things while creating EC2 instance. Rest everything can be left as default.</br>
   key pair</br>
   vpc</br>
   subnet</br>
-  `enable` auto assign public IP option, if you are creating instance inside public subnet.</br>
+  `enable` auto assign public IP option, since you are creating instance inside public subnet.</br>
   security_group</br>
-- Create this machine in public subnet.</br>
-  Reason is, producers & consumers will connect to kafka server running inside this machine, through internet.</br>
-  Since you are creating EC2 in public subnet, `enable` auto assign public IP option.
+- While creating instance, you need to associate an key pair with the instance.</br>
+  For example, let's consider that you created a key pair named `ec2-key-pair.pem`.</br>
+  The moment you create this key pair, one key is downloaded into your laptop. Keep it safe, that's needed to login into EC2 machine.
+- Create this instance in public subnet.</br>
+  Reason is, producers & consumers will connect to kafka server running inside this instance, through internet.</br>
+  Also, since you are creating EC2 in public subnet, `enable` auto assign public IP option.
 --------------------------------------------------------------------------------------------------------------------------------
-#### Changes needed to security group associated with EC2 machine
+#### Changes needed to security group associated with EC2 instance
 - Let's consider you want to connect to EC2 machine from `cmd`.</br>
   You can do this by executing command `ssh -i "ec2-key-pair.pem" ec2-user@ec2-54-227-123-170.compute-1.amazonaws.com`</br>
   This command is trying to establish connection to EC2 machine through ssh protocol.</br>
@@ -21,14 +45,6 @@
 - Once you start the kafka server inside this EC2 machine, we dont know with which protocol, producers & servers will be connecting to it.</br>
   hence, create one more rule to allow all traffic.
   ![image](https://github.com/user-attachments/assets/0eab5a56-be57-46b6-9335-7c24898d0d06)
-
---------------------------------------------------------------------------------------------------------------------------------
-#### Note
-- From now onwards, you need to open 2 `cmd`'s.</br>
-  In first cmd, will start zoo keeper server.</br>
-  In second cmd, will start kafka server.</br>
-- Since we created EC2 machine in public seubnet, we can directly connect to it through cmd provided by aws itself.</br>
-  It's a simple process, since there is no need to provide key pair for authntication.
 
 --------------------------------------------------------------------------------------------------------------------------------
 #### Let's connect to EC2 instance.
