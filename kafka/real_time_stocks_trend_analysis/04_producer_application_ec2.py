@@ -1,5 +1,5 @@
-# pip install kafka-python-ng
 # pip install faker
+# pip install kafka-python-ng
 from faker import Faker
 from kafka import KafkaProducer
 import json
