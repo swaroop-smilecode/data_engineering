@@ -18,7 +18,7 @@ def get_registered_user_data():
     return data_json
 
 
-producer = KafkaProducer(bootstrap_servers=["54.227.123.170:9092"])  # change ip here
+producer = KafkaProducer(bootstrap_servers=["3.91.5.89"])  # change ip here
 
 while True:
     producer.send("cricket", value=get_registered_user_data())
