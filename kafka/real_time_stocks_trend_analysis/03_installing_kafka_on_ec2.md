@@ -55,8 +55,8 @@ Because kafka runs on top of Java, install java.</br>
 - Again connect to EC2 machine
 - `cd kafka_2.12-3.9.0`
 - `export KAFKA_HEAP_OPTS="-Xmx256M -Xms128M"`
-- `bin/kafka-server-start.sh config/server.properties`
-- Any computer will have 2 IP's(One public IP & one private IP). Similarly, our EC2 machine also will have one public IP & one private IP.</br>
+- <ins>Changing kafka server properties to run it on public IP of EC2 instance</ins></br>
+  Any computer will have 2 IP's(One public IP & one private IP). Similarly, our EC2 machine also will have one public IP & one private IP.</br>
   By default, kafka server runs on the private IP & you can't reach private IP from internet. Hence,</br>
   change server.properties so that it run's on public IP.</br>
   `sudo nano config/server.properties`</br>
@@ -65,6 +65,8 @@ Because kafka runs on top of Java, install java.</br>
   `ctrl + x`</br>
   `y`</br>
   `Enter`
+- <ins>Start the server</ins></br>
+  `bin/kafka-server-start.sh config/server.properties`
 
 --------------------------------------------------------------------------------------------------------------------------------
 #### Note
