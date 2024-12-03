@@ -80,3 +80,11 @@ zoo keeper server has to be started before starting kafka server.
 - `bin/kafka-topics.sh --bootstrap-server 54.227.123.170:9092 --topic cricket --create --partitions 1 --replication-factor 1`
 
 --------------------------------------------------------------------------------------------------------------------------------
+#### Note
+Once EC2 instance is started, you will know public IP of instance, right?</br>
+That address need to be placed at 3 locations.
+1. `sudo nano config/server.properties`
+2. `04_producer_application_lambda`
+3. `05_consumer_application_lambda`
+
+--------------------------------------------------------------------------------------------------------------------------------
