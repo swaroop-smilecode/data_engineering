@@ -1,9 +1,10 @@
 --------------------------------------------------------------------------------------------------------------------------------
 #### Create EC2 machine with amazon linux OS.
-While creating machine you need to associate an key pair with this.</br>
-For example, let's consider that you created a key pair named `ec2-key-pair.pem`.</br>
-The moment you create this key pair, one key is downloaded into your laptop. Keep it safe, that's needed to login into EC2 machine.
-
+- While creating machine you need to associate an key pair with this.</br>
+  For example, let's consider that you created a key pair named `ec2-key-pair.pem`.</br>
+  The moment you create this key pair, one key is downloaded into your laptop. Keep it safe, that's needed to login into EC2 machine.
+- Create this machine in public subnet.</br>
+  Reason is, producers & consumers will connect to kafka server running inside this machine, through internet.
 --------------------------------------------------------------------------------------------------------------------------------
 #### Changes needed to security group associated with EC2 machine
 - Let's consider you want to connect to EC2 machine from `cmd`.</br>
@@ -15,8 +16,16 @@ The moment you create this key pair, one key is downloaded into your laptop. Kee
   ![image](https://github.com/user-attachments/assets/0eab5a56-be57-46b6-9335-7c24898d0d06)
 
 --------------------------------------------------------------------------------------------------------------------------------
+#### Note
+- From now onwards, you need to open 2 `cmd`'s.</br>
+  In first cmd, will start zoo keeper server.</br>
+  In second cmd, will start kafka server.</br>
+- Since we created EC2 machine in public seubnet, we can directly connect to it through cmd provided by aws itself.</br>
+  It's a simple process, since there is no need to provide key pair for authntication.
+
+--------------------------------------------------------------------------------------------------------------------------------
 #### Let's connect to EC2 instance.
-- Open `cmd`
+- Open `cmd`.
 - Previously we talked about an key pair will get downloaded into your computer. Navigate to that location & execute below command.</br>
   Replace the IP address shown in below command with that of IP address of EC2 machine.</br>
   `ssh -i "ec2-key-pair.pem" ec2-user@ec2-54-227-123-170.compute-1.amazonaws.com`</br>
