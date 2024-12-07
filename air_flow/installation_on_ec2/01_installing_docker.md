@@ -1,6 +1,8 @@
 ------------------------------------------------------------------------------------------------------------------------------
-If your plan is to install docker on EC2, then at least allocate 16GB RAM for that instance.</br>
-Docker needs that memory to run smoothly.
+If your plan is to install docker on EC2, Docker needs that memory to run smoothly.
+t2.small
+16 GB hard disk
+
 Install docker</br>
 ```python
 sudo su
