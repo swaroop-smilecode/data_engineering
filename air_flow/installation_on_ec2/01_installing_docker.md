@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------------------------------------------------------
-If your plan is to install docker on EC2, Docker needs that memory to run smoothly.
-t2.small
-16 GB hard disk
+TO run airflow as dockerized container, you need EC2 instance with below capabilities.
+t2.medium
+32 GB hard disk
 
 ------------------------------------------------------------------------------------------------------------------------------
 Install docker</br>
