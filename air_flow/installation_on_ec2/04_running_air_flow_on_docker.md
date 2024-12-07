@@ -12,3 +12,7 @@ echo -e "AIRFLOW_UID=$(id -u)" > .env
 docker-compose up
 ```
 
+You will see airflow running at below address
+```python
+http://54.146.206.183:8080
+```
