@@ -1,3 +1,3 @@
 ```python
-sudo systemctl start docker
+systemctl start docker
 ```
