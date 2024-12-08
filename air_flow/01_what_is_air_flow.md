@@ -20,3 +20,10 @@ On top of that, as the business grows, cron jobs architecture becomes like this
 This is where air flow comes in. It's an orchestrator of cron jobs. 
 ![image](https://github.com/user-attachments/assets/407fa6a7-95ca-422d-b401-652f41c0cadb)
 
+#### Let's put it in simple terms.
+All the above thing is going in depth. To look on top in simple terms, airflow is just below.
+![image](https://github.com/user-attachments/assets/7b508329-7d2e-4ce3-be28-ef6f663839b7)
+
+![image](https://github.com/user-attachments/assets/f72bd2b8-956d-44eb-9873-f911b0a017ef)
+
+![image](https://github.com/user-attachments/assets/c51a6ee0-3231-495c-b121-6e97136a07b5)
