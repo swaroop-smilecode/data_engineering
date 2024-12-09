@@ -1,8 +1,3 @@
-#### <ins>Note</ins>
-`Let's start with note`.</br>
-`Athena can't run SQL queries on the data that is present inside the warehouse(For ex: Redshift)`.</br>
-`Athena works only on the data present inside S3 bucket`.
-
 #### What is Athena?
 - Athena helps you analyze unstructured, semi-structured, and structured data stored in Amazon S3.
 - It's server less, similar to lambda service.
