@@ -1,7 +1,6 @@
 #### What's glue?
-- Think of glue it self as a data pipeline & the name itself tells you that it allows us to stick</br> various data engineering related aws services 
-  together at the respective places of pipeline</br>
-- It's server less.
+We know the big picture, right?
+![image](https://github.com/user-attachments/assets/77e82d9c-7af8-41a7-9d3e-f149637bd15a)
 
 #### Catalog
 ![image](https://github.com/user-attachments/assets/20c6c6af-9616-4392-a7df-b806a0382bdd)
