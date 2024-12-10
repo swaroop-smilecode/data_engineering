@@ -1,3 +1,0 @@
-```python
-systemctl start docker
-```
