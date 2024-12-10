@@ -7,6 +7,19 @@ crude oil comes from one end --> at each stage machines process it --> At the en
 data pipeline also the same. raw data comes at one end --> processed data emerges out from another end.
 ![image](https://github.com/user-attachments/assets/7d3efae5-770c-497a-a910-b1a09a70c97c)
 #### -----------------------------------------------------------
+#### Data warehouse
+- It is a central repository of information that can be analyzed to make more informed decisions.</br>
+  Data is copied into data warehouse from many sources such as relational databases(transactional systems),</br>
+  non-relational databases(for example; dynamo db) etc.</br>
+- A database is designed to store transactional data immediatly after the transaction.</br>
+  where as, a data warehouse is designed for archive purpose. To put the samething in technical terms,</br>
+  Data warehouse is for Online analytical processing(OLAP).</br>
+  Database is for Online transactional processing(OLTP).</br>
+![image](https://github.com/user-attachments/assets/4bfe912a-500b-47e8-b307-218facbe683e)
+#### -----------------------------------------------------------
+#### Data lake vs Data warehouse
+![image](https://github.com/user-attachments/assets/97b11a24-2a58-44f6-936c-f561ba27fcda)
+#### -----------------------------------------------------------
 #### Extract, transform, and load (ETL) Process
 ![image](https://github.com/user-attachments/assets/a3e05f81-c884-4e07-8164-689a558f3326)
 Just above, we saw data is collected from many sources & stored into data warehouse. This ETL process is just about that.</br>
