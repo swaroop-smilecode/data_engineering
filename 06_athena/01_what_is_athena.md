@@ -7,4 +7,5 @@
 Amazon s3 can contain unstructured, semi-structured, and structured data.</br>
 So, it's really difficult to write an SQL query on top of all this mingled data.</br>
 Because if this reason, athena expects an data catalog & if you want to create that catalog using AWS service, then glue is better option.</br>
-![image](https://github.com/user-attachments/assets/c2c88596-223e-4e25-89d2-745726276c53)
+![image](https://github.com/user-attachments/assets/783d12e8-8d74-475f-8854-f1b21ad56013)
+
