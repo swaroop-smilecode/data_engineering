@@ -1,6 +1,7 @@
 #### Architecture
-![image](https://github.com/user-attachments/assets/2d1d35bd-8344-46d3-a8ba-ccdd02ce646e)
+![image](https://github.com/user-attachments/assets/bde0f672-ddbc-4273-a448-3b0edfc7dd32)
 
+- Just remember the word, Massively parallel processing.
 - When a query comes to redshift cluster, leader node prepares the execution plan.
 - When you are creating redshift cluster, it will ask you, do you need child nodes to be `dense compute nodes` / `dense storage nodes`.</br>
   With these options, there is no possibility of scaling compute power & storage power independently.</br>
