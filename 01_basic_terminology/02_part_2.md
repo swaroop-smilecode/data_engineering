@@ -7,7 +7,7 @@ crude oil comes from one end --> at each stage machines process it --> At the en
 data pipeline also the same. raw data comes at one end --> processed data emerges out from another end.
 ![image](https://github.com/user-attachments/assets/7d3efae5-770c-497a-a910-b1a09a70c97c)
 #### -----------------------------------------------------------
-#### Extract, transform, and load (ETL)
+#### Extract, transform, and load (ETL) Process
 ![image](https://github.com/user-attachments/assets/a3e05f81-c884-4e07-8164-689a558f3326)
 Just above, we saw data is collected from many sources & stored into data warehouse. This ETL process is just about that.</br>
 It explains about the 3 steps involved in this process.</br>
