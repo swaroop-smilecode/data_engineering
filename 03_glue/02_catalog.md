@@ -2,7 +2,7 @@
 - It's meta data about the data.
 - Catalog is nothing but database with tables inside it.</br>
   The difference between database like postgresql & catalog database is that this datbase don't have data inside it.
-  ![image](https://github.com/user-attachments/assets/ebd02903-2343-4363-9818-cc28c41bf429)
+  ![image](https://github.com/user-attachments/assets/32ebc1bd-f89d-4102-a906-7120eae881e1)
 
 #### <ins>How do you create this catalog?</ins>
 We know catalog is nothing but database table. Hence, creating an catalog is nothing but creating table inside database.</br>
