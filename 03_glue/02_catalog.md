@@ -12,7 +12,7 @@ You can create table in 2 ways.</br>
 
 ![image](https://github.com/user-attachments/assets/3ac47e4b-d151-4565-a37a-c970403888cf)
 
-#### <ins>Schema is not just literal copy of the schema source data</ins>
+#### <ins>Schema is not just literal copy of source data schema</ins>
 ![image](https://github.com/user-attachments/assets/6f66357b-d929-4a53-b9f8-d6226aac9815)
 
 #### <ins>Important points</ins>
