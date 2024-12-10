@@ -5,7 +5,7 @@ crude oil comes from one end --> at each stage machines process it --> At the en
 ![image](https://github.com/user-attachments/assets/d92a3d13-2d9b-46fe-9d03-8e15736cd847)
 
 data pipeline also the same. raw data comes at one end --> processed data emerges out from another end.
-![image](https://github.com/user-attachments/assets/8e6726e8-d933-4155-b84a-f60ccd32f452)
+![image](https://github.com/user-attachments/assets/cd293e97-7847-4582-bf15-071bfad02f31)
 
 #### -----------------------------------------------------------
 #### Data warehouse
