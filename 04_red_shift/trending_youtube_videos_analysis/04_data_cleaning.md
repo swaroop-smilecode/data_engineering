@@ -21,4 +21,4 @@ data continues....
 But, glue crawler expects both key & value in single line as below 
 ![image](https://github.com/user-attachments/assets/541f958c-5920-47e7-9d38-9aada681dbf7)
 
-So, let's clean the data using python language. Will use lambda service for this purpose.
+So, convert the json data into parquet file format. Will use lambda service for this purpose.
