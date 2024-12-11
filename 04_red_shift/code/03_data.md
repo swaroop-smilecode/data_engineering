@@ -23,6 +23,6 @@
   aws s3 cp ../data/KRvideos.csv s3://trending-youtube-video-statistics-raw-data-heidi/raw_statistics/region=kr/
   aws s3 cp ../data/MXvideos.csv s3://trending-youtube-video-statistics-raw-data-heidi/raw_statistics/region=mx/
   aws s3 cp ../data/RUvideos.csv s3://trending-youtube-video-statistics-raw-data-heidi/raw_statistics/region=ru/
-  aws s3 cp ../data/USvideos.csv s3://trending-youtube-video-statistics-raw-data-heidi/raw_statistics/region=rs/
+  aws s3 cp ../data/USvideos.csv s3://trending-youtube-video-statistics-raw-data-heidi/raw_statistics/region=us/
   ```
   
