@@ -1,6 +1,7 @@
+---------------------------------------------------------------------------------------------------------------
 We need to do 2 activities as part of data cleaning.
 
-#### <ins>Convert input data which is in json format to parquet format</ins>
+#### <ins>Activity 1 :</ins> Convert input data which is in json format to parquet format
 Look at the data present inside the json file.
 ```python
 {
@@ -26,5 +27,13 @@ But, glue crawler expects both key & value in single line as below
 
 So, convert the json data into parquet file format. Will use lambda service for this purpose.
 
-#### <ins>We just need some of the input data</ins>
+#### <ins>Activity 2 :</ins> We just need some of the input data
 Input data has many keys & corresponding values. We just need one key named `items` & it's corresponding value.
+
+---------------------------------------------------------------------------------------------------------------
+#### <ins>Where to write the code to clean the data?</ins>
+Will write the code inside an docker image & push that image to ECR</br>
+Then, will write an lambda using `Container image` option.</br>
+Detail explanation is written in next chapter.
+
+---------------------------------------------------------------------------------------------------------------
