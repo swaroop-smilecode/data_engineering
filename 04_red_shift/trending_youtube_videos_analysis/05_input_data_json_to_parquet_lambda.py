@@ -5,15 +5,18 @@
 # -------------------------------------------------------------------------------------
 # Increase the maximum execution time of lambda to 1 minute
 # -------------------------------------------------------------------------------------
-# Create 4 environment variables
-# s3_cleansed_layer
-# glue_catalog_db_name
-# glue_catalog_table_name
-# write_data_operation
+# Create s3 bucket named trending-youtube-video-statistics-cleaned-data-heidi
+# Will stored cleaned data here
 # -------------------------------------------------------------------------------------
-import awswrangler as wr  # Allows to access files present in s3 bucket.
+# Create 4 environment variables
+# s3_cleansed_layer = trending-youtube-video-statistics-cleaned-data-heidi
+# glue_catalog_db_name = trending_youtube_videos_analysis_database
+# glue_catalog_table_name = raw_statistics_reference_data
+# write_data_operation = append
+# -------------------------------------------------------------------------------------
+import pyarrow
 import pandas as pd
-import urllib.parse  #
+import urllib.parse
 import os
 
 os_input_s3_cleansed_layer = os.environ["s3_cleansed_layer"]
@@ -36,6 +39,7 @@ def lambda_handler(event, context):
         # Extract required columns:
         df_step_1 = pd.json_normalize(df_raw["items"])
 
+        df.to_parquet("myfile.parquet", engine="fastparquet")
         # Write to S3
         wr_response = wr.s3.to_parquet(
             df=df_step_1,
