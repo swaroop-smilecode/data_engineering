@@ -25,4 +25,6 @@
   aws s3 cp ../data/RUvideos.csv s3://trending-youtube-video-statistics-raw-data-heidi/raw_statistics/region=ru/
   aws s3 cp ../data/USvideos.csv s3://trending-youtube-video-statistics-raw-data-heidi/raw_statistics/region=us/
   ```
-  
+#### Cleaned data
+Create s3 bucket named `trending-youtube-video-statistics-cleaned-data-heidi`
+Will stored cleaned data here
