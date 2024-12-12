@@ -2,7 +2,7 @@
 We are going to create lambda function named `input_data_json_to_parquet_lambda` to clean input data.</br>
 This lambda function needs below libraries.</br>
 ```python
-pyarrow
+awswrangler
 pandas
 ```
 For a lambda function, there can be maximum of 5 layers &</br>
@@ -40,14 +40,61 @@ Create project folder & navigate into it.
   cd docker_image_creation
   ```
 
-<ins>Step 3 :</ins> requirements.txt</br>
+<ins>Step 3 :</ins> lambda_function.py</br>
+  ```python
+  nano lambda_function.py
+  ```
+Paste below content inside the file & save it.</br>
+Observe that the fn name is `handler` not `lambda_handler`.
+  ```python
+import awswrangler as wr
+import pandas as pd
+import urllib.parse
+import os
+
+os_input_s3_cleansed_layer = os.environ['s3_cleansed_layer']
+os_input_glue_catalog_db_name = os.environ['glue_catalog_db_name']
+os_input_glue_catalog_table_name = os.environ['glue_catalog_table_name']
+os_input_write_data_operation = os.environ['write_data_operation']
+
+
+def handler(event, context):
+    # Get the object from the event and show its content type
+    bucket = "trending-youtube-video-statistics-raw-data-heidi"
+    key = "raw_statistics_reference_data/CA_category_id.json"
+    try:
+
+        # Creating DF from content
+        df_raw = wr.s3.read_json('s3://{}/{}'.format(bucket, key))
+
+        # Extract required columns:
+        df_step_1 = pd.json_normalize(df_raw['items'])
+
+        # Write to S3
+        wr_response = wr.s3.to_parquet(
+            df=df_step_1,
+            path=os_input_s3_cleansed_layer,
+            dataset=True,
+            database=os_input_glue_catalog_db_name,
+            table=os_input_glue_catalog_table_name,
+            mode=os_input_write_data_operation
+        )
+
+        return wr_response
+    except Exception as e:
+        print(e)
+        print('Error getting object {} from bucket {}. Make sure they exist and your bucket is in the same region as this function.'.format(key, bucket))
+        raise e
+  ```
+
+<ins>Step 4 :</ins> requirements.txt</br>
 Below command creates file named `requirements.txt` & opens it.
 ```python
 nano requirements.txt
 ```
 Paste below content inside the file.
 ```python
-pyarrow
+awswrangler
 pandas
 ```
 Press below keys
@@ -57,7 +104,7 @@ y
 Enter
 ```
 
-<ins>Step 4 :</ins> Dockerfile</br>
+<ins>Step 5 :</ins> Dockerfile</br>
 ```python
 nano Dockerfile
 ```
@@ -78,10 +125,10 @@ COPY lambda_function.py ${LAMBDA_TASK_ROOT}
 CMD [ "lambda_function.handler" ]
 ```
 
-<ins>Step 5 :</ins> Elastic Container Reposiroty(ECR) creation</br>
+<ins>Step 6 :</ins> Elastic Container Reposiroty(ECR) creation</br>
 Create ECR named `docker_image_of_python_libs_needed_for_lambda_ecr`
 
-<ins>Step 6 :</ins> Push image to ECR</br>
+<ins>Step 7 :</ins> Push image to ECR</br>
 - Select the ECR named `docker_image_of_python_libs_needed_for_lambda_ecr`, which is created in above step & click `View push commands`.</br>
   You will be greated with some commands.</br>
 - These commands include the commands to build docker image, authenticate to ECR, push the image to ECR etc.</br>
