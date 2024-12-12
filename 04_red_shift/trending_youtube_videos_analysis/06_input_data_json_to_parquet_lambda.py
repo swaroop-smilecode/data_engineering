@@ -1,4 +1,9 @@
 # -------------------------------------------------------------------------------------
+# Create lambda
+# Choose one of the following options to create your function : `Container image`
+# Function name : `input_data_json_to_parquet_lambda`
+# Container image URI : 
+# -------------------------------------------------------------------------------------
 # By default, an IAM role with basic permissions will be created & attached to lambda.
 # Add more permissions to it according to your need.
 # For POC purpose, just add AdministratorAccess policy to the role, so that you won't face any permission related problems.
