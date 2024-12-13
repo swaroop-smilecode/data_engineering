@@ -11,6 +11,7 @@ total size of libraries provided in those 5 layers should not exceed 250 MB when
 That's the reason to go with docker container which will be triggered by lambda.
 
 ----------------------------------------------------------------------------------------------------------
+#### Let's start action 
 <ins>Step 1 :</ins> Docker installation & starting the service</br>
 To create docker image we need docker installed. That's what we are going to do now.</br>
 - Create an EC2 instance named `docker_trending_youtube_videos_analysis`(free tier is good enough).
