@@ -83,7 +83,7 @@ def handler(event, context):
   ```
 
 ----------------------------------------------------------------------------------------------------------
-<ins>Step 5 :</ins> requirements.txt</br>
+<ins>Step 4 :</ins> requirements.txt</br>
 ```python
 nano requirements.txt
 ```
@@ -100,7 +100,7 @@ Enter
 ```
 
 ----------------------------------------------------------------------------------------------------------
-<ins>Step 6 :</ins> Dockerfile</br>
+<ins>Step 5 :</ins> Dockerfile</br>
 ```python
 nano Dockerfile
 ```
