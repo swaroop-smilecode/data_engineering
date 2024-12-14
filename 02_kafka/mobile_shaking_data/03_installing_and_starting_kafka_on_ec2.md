@@ -1,8 +1,9 @@
 --------------------------------------------------------------------------------------------------------------------------------
 #### Create EC2 instance(to run kafka & zoo keeper servers)
 You need to take care of below things while creating EC2 instance. Rest everything can be left as default.</br>
-- Key pair</br>
-- Vpc</br>
+- Name of EC2 instance is `kafka_sever`
+- Key pair
+- Vpc
 - Public_subnet</br>
   (I am creating kafka server in public subnet for making the project in simple way. Ideally kafka server should be inside private subnet,</br>
    but again, establishing the communication etc. is a bit of work which will deviate from moto of this project which is not security.</br>
