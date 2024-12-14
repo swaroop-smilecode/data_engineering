@@ -1,7 +1,3 @@
-As shown in the architecture diagram, we need to start 3 servers.
-1. Zoo keeper
-2. Kafka cluster
-3. Consumer
 --------------------------------------------------------------------------------------------------------------------------------
 #### Create EC2 instance(to run kafka & zoo keeper servers)
 You need to take care of below things while creating EC2 instance. Rest everything can be left as default.</br>
