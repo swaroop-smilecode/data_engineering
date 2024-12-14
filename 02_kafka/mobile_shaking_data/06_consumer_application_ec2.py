@@ -1,28 +1,30 @@
-from dotenv import load_dotenv
-import os
 from kafka import KafkaConsumer
-import time
-import boto3
+from kafka import TopicPartition, OffsetAndMetadata
+import json
 
 
-consumer = KafkaConsumer("cricket", bootstrap_servers="3.91.5.89:9092")
-
-# Get aws credentials from .env file
-load_dotenv()
-
-# boto3 session
-session = boto3.Session(
-    aws_access_key_id=os.getenv("aws_access_key_id"),
-    aws_secret_access_key=os.getenv("aws_secret_access_key"),
+consumer = KafkaConsumer(
+    "mobile_shaking_data_1",
+    bootstrap_servers=["34.200.238.108:9092"],
+    value_deserializer=lambda m: json.loads(m.decode("utf-8")),
+    group_id="acceleration_test",
+    auto_offset_reset="earliest",
+    enable_auto_commit=False,
 )
 
-s3_client = session.client("s3")
-for data in consumer:
-    # Convert data to JSON
-    data = data.value
 
-    s3 = boto3.resource("s3")
-
-    # Store file in S3
-    file_name = "user_reg_data_" + time.strftime("%Y%m%d-%H%M%S") + ".json"
-    s3_client.put_object(Body=data, Bucket="streamed-data-heidi", Key=file_name)
+for message in consumer:
+    data = message.value
+    x_accl = data["acc_x"]
+    y_accl = data["acc_y"]
+    z_accl = data["acc_z"]
+    mag = abs(x_accl) + abs(y_accl) + abs(z_accl)
+    if mag >= 15:
+        print("*" * 100)
+        print("Shaking")
+        print("*" * 100)
+    else:
+        print("Idle")
+    tp = TopicPartition(message.topic, message.partition)
+    om = OffsetAndMetadata(message.offset + 1, message.timestamp)
+    consumer.commit({tp: om})
