@@ -44,8 +44,3 @@ tar -xvf kafka_2.12-3.9.0.tgz
   `bin/kafka-server-start.sh config/server.properties`
 
 --------------------------------------------------------------------------------------------------------------------------
-#### Create topic in kafka server
-- `cd kafka_2.12-3.9.0`
-- `bin/kafka-topics.sh --bootstrap-server 54.227.123.170:9092 --topic mobile_shaking_data --create --partitions 1 --replication-factor 1`
-
---------------------------------------------------------------------------------------------------------------------------------
