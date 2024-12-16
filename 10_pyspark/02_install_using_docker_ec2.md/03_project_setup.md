@@ -5,7 +5,7 @@ mkdir pyspark
 cd pyspark
 ```
 ----------------------------------------------------------------------------------------------------------
-#### Step 2 : Creating docker-compose.yml
+#### Step 2 : docker-compose.yml creation 
 Create & open `docker-compose.yml` file.
 ```python
 nano docker-compose.yml
