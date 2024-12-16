@@ -2,7 +2,7 @@
 #### Spark Applications 
 Spark Applications consist of a driver process and a set of executor processes.</br>
 
-<ins>Driver Process:</ins></br> 
+<ins>Driver Process(SparkSession):</ins></br> 
 The driver process runs your main() function, sits on a node in the cluster, and is responsible for three things.
 1. Maintaining information about the Spark Application
 2. Responding to a user’s program or input
@@ -14,3 +14,7 @@ The executors are responsible for actually carrying out the work that the driver
 2. Reporting the state of the computation on that executor back to the driver node.
 Spark, in addition to its cluster mode, also has a local mode. Which means that all the executors can live on the same machine.</br>
 In local mode, the driver and executurs run (as threads) on your individual computer instead of a cluster.
+
+#### SparkSession
+- You control your Spark Application through a driver process called the SparkSession.
+- There is a one-to-one correspondence between a SparkSession and a Spark Application.
