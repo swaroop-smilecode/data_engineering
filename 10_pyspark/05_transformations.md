@@ -1,3 +1,5 @@
+#### What is transformation?
+- Changing the data inside an data frame is called as transformation.
 - Dataframes are immutable.
 - Transformations are the core of how you express your business logic using Spark.
 #### Types of transformations:
