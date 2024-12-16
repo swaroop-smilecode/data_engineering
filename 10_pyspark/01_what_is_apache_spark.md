@@ -1,4 +1,8 @@
-#### What is spark?
+#### Big data problem
+`<Pending notes>`
+#### Hadoop HDFS & Map Reduce framework
+`<Pending notes>`
+#### Apache Spark
 - Apache Spark is a unified computing engine and a set of libraries for parallel data processing on computer clusters.
   ![image](https://github.com/user-attachments/assets/e1384646-6f81-4aeb-a60b-caa147010535)
 
@@ -9,3 +13,5 @@
   Before analysing the data with hadoop's map reduce framework,</br>
   that data needs to be copied from source location to HDFS & moving terabytes of data is costly.
 
+#### PySpark
+Python wrapper around apache spark.
