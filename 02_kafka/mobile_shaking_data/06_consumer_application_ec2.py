@@ -4,8 +4,8 @@ import json
 
 
 consumer = KafkaConsumer(
-    "mobile_shaking_data_1",
-    bootstrap_servers=["34.200.238.108:9092"],
+    "mobile_shaking_data_v2",
+    bootstrap_servers=["98.80.167.134:9092"],
     value_deserializer=lambda m: json.loads(m.decode("utf-8")),
     group_id="acceleration_test",
     auto_offset_reset="earliest",
