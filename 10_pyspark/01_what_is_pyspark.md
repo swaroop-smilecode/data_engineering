@@ -14,4 +14,5 @@
   that data needs to be copied from source location to HDFS & moving terabytes of data is costly.
 
 #### PySpark
-Python wrapper around apache spark.
+Spark is written in `scala` language.</br>
+PySpark is python language wrapper around spark.
