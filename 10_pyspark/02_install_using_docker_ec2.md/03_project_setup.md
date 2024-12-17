@@ -17,6 +17,7 @@ version: '3'
 services:
   spark:
     image: jupyter/pyspark-notebook
+    user : root
     ports:
       - "8888:8888"  # Jupyter Notebook
       - "4040:4040"  # Spark UI
