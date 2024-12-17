@@ -4,4 +4,4 @@
 - Open the tool & connect to linux server using `SFTP` protocol, SSH authentication using `default_key_pair.ppk`
 
 #### Create project folder & it's contents
-Create project folder named pyspark_overview
+Create project folder named `pyspark_overview`
