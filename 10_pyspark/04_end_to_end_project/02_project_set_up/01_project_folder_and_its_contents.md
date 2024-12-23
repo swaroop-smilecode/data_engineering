@@ -22,10 +22,9 @@ services:
       - "8888:8888"  # Jupyter Notebook
       - "4040:4040"  # Spark UI
     volumes:
-      - ./files/data:/home/jovyan/work/files/data
-      - ./files:/home/jovyan/work/files
+      - ./inside_container:/home/jovyan
     environment:
-      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_ENABLE_LAB = yes
     command: start.sh jupyter lab --NotebookApp.token=''
 
   spark-master:
