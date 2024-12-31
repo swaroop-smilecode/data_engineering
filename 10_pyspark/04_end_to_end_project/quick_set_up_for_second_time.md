@@ -2,13 +2,6 @@
 sudo su
 cd ~
 ```
-
-```python
-service docker start
-cd pyspark_simple_end_to_end_project
-docker-compose up
-```
-
 ----------------------------------------------------
 Observe the volumes you are creating related to jupyter notebook container
 ```python
@@ -23,6 +16,13 @@ In order to provide the permisssion to jovyan user, execute the below command in
 ```python
 sudo chown -R 1000:1000 /root/pyspark_simple_end_to_end_project
 ```
+----------------------------------------------------
+```python
+service docker start
+cd pyspark_simple_end_to_end_project
+docker-compose up
+```
+
 ----------------------------------------------------
 
 ```python
