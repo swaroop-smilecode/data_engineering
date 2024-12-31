@@ -24,7 +24,8 @@ docker-compose up
 ```
 
 ----------------------------------------------------
-
+Below are the addresses through which you can access the jupyter notebook & spark UI.</br>
+Replace the EC2 ip in place of below ip & then hit them :)
 ```python
 http://3.230.163.119:8888
 http://3.230.163.119:4040
