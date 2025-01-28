@@ -23,5 +23,8 @@ create table iphone_data (
     comment = 'This table contains information about the iphone data';
 ```
 #### Step 4
-Loading the data
-We can upload the data through an excel sheet 
+Let's load the data.</br>
+We can upload the data through an excel sheet.</br> 
+When you are loading the data, below are some of the options need to be kept in mind.</br>
+![image](https://github.com/user-attachments/assets/b5d98c8a-ca3b-42bd-8243-230c9d5752ee)
+
