@@ -1,0 +1,3 @@
+- Create data base `dw_course_db`
+- Create schema `external_stages`
+- 
