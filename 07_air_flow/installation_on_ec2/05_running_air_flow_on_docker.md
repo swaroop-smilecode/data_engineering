@@ -16,3 +16,8 @@ You will see airflow running at below address, where `54.146.206.183` is the pub
 ```python
 http://54.146.206.183:8080
 ```
+Default credentials
+```python
+airflow
+airflow
+```
