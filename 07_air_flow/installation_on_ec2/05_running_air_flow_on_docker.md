@@ -2,7 +2,7 @@
 mkdir air_flow
 cd air_flow
 
-# Download docker yaml file
+# Download docker yaml file for creating Airflow container
 curl -LfO 'https://airflow.apache.org/docs/apache-airflow/2.10.3/docker-compose.yaml'
 
 mkdir ./dags ./logs ./config ./plugins
@@ -12,7 +12,7 @@ echo -e "AIRFLOW_UID=$(id -u)" > .env
 docker-compose up
 ```
 
-You will see airflow running at below address
+You will see airflow running at below address, where `54.146.206.183` is the public ip address of EC2 instance.
 ```python
 http://54.146.206.183:8080
 ```
