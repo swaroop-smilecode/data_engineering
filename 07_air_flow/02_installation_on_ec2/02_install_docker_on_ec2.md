@@ -21,6 +21,7 @@ Create EC2 instance with below settings</br>
   default_vpc-subnet-public3-us-east-1c
   ```
 - Auto-assign public IP
+  (If you don't set to True, you can't connect through `connect` button on AWS)
   ```python
   True
   ```
