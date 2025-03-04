@@ -30,7 +30,7 @@ Create EC2 instance with below settings</br>
   ```
 - Configure storage
   ```python
-  32 GB hard disk
+  30 GB hard disk
   ```
 
 ------------------------------------------------------------------------------------------------------------------------------
