@@ -2,7 +2,7 @@
 Create EC2 instance with below settings</br>
 - Name
   ```python
-  default_ec2
+  airflow_on_docker
   ```
 - Instance type
   ```python
@@ -30,7 +30,7 @@ Create EC2 instance with below settings</br>
   ```
 - Configure storage
   ```python
-  100 GB hard disk
+  96 GB hard disk
   ```
 
 ------------------------------------------------------------------------------------------------------------------------------
