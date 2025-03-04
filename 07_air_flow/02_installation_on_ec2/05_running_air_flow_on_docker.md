@@ -8,7 +8,10 @@ curl -LfO 'https://airflow.apache.org/docs/apache-airflow/2.10.3/docker-compose.
 mkdir ./dags ./logs ./config ./plugins
 
 echo -e "AIRFLOW_UID=$(id -u)\nAIRFLOW_GID=0" > .env
+```
 
+Let's start  the container based on yaml file.
+```python
 docker-compose up
 ```
 
@@ -20,4 +23,9 @@ Below are the default credentials to login into docker. These credentials are se
 ```python
 airflow
 airflow
+```
+
+If you want to shutdown the container, then 
+```python
+docker-compose down
 ```
