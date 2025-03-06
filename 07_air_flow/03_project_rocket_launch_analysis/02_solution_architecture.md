@@ -16,3 +16,18 @@
   ```python
   exit
   ```
+- If you look at DAG file, there will be below code which is used to create tmp/images path into which images will be downloaded.</br>
+  But, this code seems not working. 
+  ```python
+  # Ensure directory exists
+  pathlib.Path("/tmp/images").mkdir(parents=True, exist_ok=True)
+  ```
+  So, will create the required folders manually as below.</br>
+  Create folder `tmp` 
+  ```python
+  mkdir tmp
+  ```
+  Navigate into `tmp` folder & create folder `images`
+  ```python
+  mkdir images
+  ```
