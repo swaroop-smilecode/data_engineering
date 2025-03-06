@@ -2,8 +2,8 @@
 mkdir airflow-docker
 cd airflow-docker
 
-# Download docker yaml file for creating Airflow container
-curl -LfO 'https://airflow.apache.org/docs/apache-airflow/2.10.3/docker-compose.yaml'
+# There is a file named docker-compose.yaml in this folder.
+# copy that file into airflow-docker folder. 
 
 mkdir ./dags ./logs ./config ./plugins
 
