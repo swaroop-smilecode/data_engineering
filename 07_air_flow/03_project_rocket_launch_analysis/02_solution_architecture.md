@@ -31,3 +31,8 @@
   ```python
   mkdir images
   ```
+- Whenever you want to shutdown & start up docker containers. Below are the commands.
+  ```python
+  docker-compose down
+  docker-compose up
+  ```
