@@ -19,7 +19,10 @@
   ```python
   http://44.205.3.218:5001/events
   ```
-- Let's navigate to below location & create dag file named `website_event.py`. This is our new dag.
+- Let's navigate to below location & create dag file named `website_event.py`. This is our new dag(name of the dag is `01_unscheduled`).
   ```python
   /home/ec2-user/airflow-docker/dags
   ```
+  It will take some time to see the DAG in airflow website.</br>
+  Wait & if you don't see yet, then restart docker in which airflow is runnning by using `docker-compose down`.
+  
