@@ -1,1 +1,2 @@
-Click on `connect` button.
+- Right click on `connect` button
+- Choose option `EC2 Instance Connect`
