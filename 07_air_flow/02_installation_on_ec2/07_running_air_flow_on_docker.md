@@ -1,12 +1,12 @@
-- Let's create a folder named `airflow-docker` inside which will keep all things needed to create airflow container(`docker-compose.yaml`) &</br>
-  run that container(dags folder, logs folder, config folder & plugins folder).
+- Let's create a folder named `airflow-docker` inside which will keep all things needed to create airflow container(through the help of `docker-compose.yaml`).
   ```python
   mkdir airflow-docker
   cd airflow-docker
   ```
 - There is a file named `docker-compose.yaml` in this folder.</br>
   Copy that file into airflow-docker folder using WinSCP. 
-- Create folders named dags, logs, config, plugins
+- Create folders named dags, logs, config, plugins. The question is why?</br>
+  
   ```python
   mkdir ./dags ./logs ./config ./plugins
   ```
