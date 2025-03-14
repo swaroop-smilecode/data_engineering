@@ -19,5 +19,5 @@
     ```python
     mkdir images
     ```
-- If you check `docker-compose.yaml` file, we mapped `tmp/images` to `output` in our local environment.</br>
+- If you check `docker-compose.yaml` file, we mapped `/tmp` to `/output` in our local environment.</br>
   So, once the running of DAG is completed, you can see downloaded images inside the output folder in your local environment.
