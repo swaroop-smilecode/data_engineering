@@ -17,7 +17,7 @@
     each & every time, then copying the DAG file, just place the DAG file in the dags folder present at your local environment</br>
     it gets copied to the dags folder of docker automatically since we mapped these fodlers thorugh volumes. 
     ```python
-    mkdir ./dags ./logs ./config ./plugins
+    mkdir ./dags ./logs ./config ./plugins ./output
     ```
 - Below command needs to be executed. I don't know why :)
   ```
