@@ -22,3 +22,8 @@ But, since it became evening; you wanted to shutdown the EC2 instance & then fre
   http://3.237.252.35:8080
   http://3.237.252.35:5001/events
   ```
+- At any point of time; if you want to go inside docker;
+  ```python
+  docker ps # get web_server_1 container id & replace it in below command.
+  docker exec -it --user root 3397acbc004a bash
+  ```
