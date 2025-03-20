@@ -56,9 +56,11 @@ fetch_events >> calculate_stats
       schedule_interval='@daily'
   )
   ```
-  ![image](https://github.com/user-attachments/assets/693a44ec-4537-46d2-9414-0c615eb162a8)
+  ![image](https://github.com/user-attachments/assets/900c5a25-5c01-4e36-b718-2e3c402270da)
   <ins>Note:</ins></br>
-  It's very important to note that on logs, the DAG executed time will be interval start time.
+  - It's very important to note that on logs,
+    DAG executed date will be scheduled date, even though for the first time it get's executed on is at the end of interval time.
+  - Even the previous and next execution dates are based on DAG scheduled date.
   
 ##### DAG scheduled based on corn job
 - What if we want to run our jobs on hourly or weekly intervals?</br>
