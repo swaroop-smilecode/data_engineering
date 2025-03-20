@@ -57,7 +57,9 @@ fetch_events >> calculate_stats
   )
   ```
   ![image](https://github.com/user-attachments/assets/693a44ec-4537-46d2-9414-0c615eb162a8)
-
+  <ins>Note:</ins></br>
+  It's very important to note that on logs, the DAG executed time will be interval start time.
+  
 ##### DAG scheduled based on corn job
 - What if we want to run our jobs on hourly or weekly intervals?</br>
   And what about more complicated intervals in which we may want to run our DAG at 23:45 every Saturday?
