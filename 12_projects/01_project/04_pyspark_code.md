@@ -1,4 +1,3 @@
-##### <ins>pyspark code</ins> 
 ```python
 import sys
 from pyspark.sql import SparkSession
