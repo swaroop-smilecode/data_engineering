@@ -29,3 +29,8 @@ output-data-heidi # To store the output data that is analyzed
 - <ins>Note:</ins></br>
   If you need sample csv files for project need, below is good website</br>
   https://wsform.com/knowledgebase/sample-csv-files/
+
+##### <ins>Step 4: Setting up environment variables inside .env file</ins>
+Environment variables which are stored inside .env file are going to be used in `dag.py` file.</br>
+Pay attention to these environment variables. For ex; the value provided for environment variable named `key_pair_name` should not be random
+That key pair name must exisit in your AWS.
