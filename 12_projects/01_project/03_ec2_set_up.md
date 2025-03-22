@@ -9,6 +9,7 @@
 - Subnet: `default_vpc-subnet-public3-us-east-1c`</br>
           Observe that the subnet is public. It means, you are creating EC2 insatnce inside this public subnet,</br>
           so that requests from outside of this VPC can hit this EC2.
+- Auto-assign public IP: `Enable`
 - Security group: `defaultsg-06c1df0000a2a7dfa`</br>
   Type: `All traffic`(You are allowing all types of requests such as HTTP, HTTPS etc.)</br>
   Port range: `All`(You are allowing requests to all ports of this EC2 instance)
