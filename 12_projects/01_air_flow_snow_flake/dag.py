@@ -9,26 +9,35 @@ from datetime import datetime, timedelta
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+# `owner` is owner of the DAG
+# `start_date` is when the DAG should run for the first time. 
+# Then onwards, DAG will run as per schedule.
 args = {"owner": "Airflow", "start_date": airflow.utils.dates.days_ago(2)}
 
+# Creation og dag object
+# `dag_id` is DAG name
 dag = DAG(
     dag_id="snowflake_automation_dag", default_args=args, schedule_interval=None
 )
 
+# Below are the two queries which we will be executing in snowflake.
+# Observe that we are creating an array & storing the queries inside this this array.
+# Later, will refer to these queries with the help of array indexes.
 snowflake_query = [
-        """
-            create  table if not exists source_table( emp_no int,emp_name text,salary int, hra int ,Dept text);
-        """,
-                    """INSERT INTO source_table VALUES (100, 'A' ,2000, 100,'HR'),
-						(101, 'B' ,5000, 300,'HR'),
-						(102, 'C' ,6000, 400,'Sales'),
-						(103, 'D' ,500, 50,'Sales'),
-						(104, 'E' ,15000, 3000,'Tech'),
-						(105, 'F' ,150000, 20050,'Tech'),
-						(105, 'F' ,150000, 20060,'Tech');
-                  """
+	"""
+	    create  table if not exists source_table( emp_no int,emp_name text,salary int, hra int ,Dept text);
+	""",
+	"""INSERT INTO source_table VALUES (100, 'A' ,2000, 100,'HR'),
+				(101, 'B' ,5000, 300,'HR'),
+				(102, 'C' ,6000, 400,'Sales'),
+				(103, 'D' ,500, 50,'Sales'),
+				(104, 'E' ,15000, 3000,'Tech'),
+				(105, 'F' ,150000, 20050,'Tech'),
+				(105, 'F' ,150000, 20060,'Tech');
+	"""
 ]
 
+# We created `dag` object already right?
 with dag:
 	create_table = SnowflakeOperator(
 			task_id="create_table",
@@ -41,4 +50,5 @@ with dag:
 		snowflake_conn_id="snowflake_conn"
 	)
 
+# This is the order of DAG task's that will be run one after the other.
 create_table >> insert_data
