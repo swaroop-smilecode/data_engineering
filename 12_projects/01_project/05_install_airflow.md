@@ -1,3 +1,4 @@
+After opening terminal through putty, execute below commands to install airflow server.
 ```python
 sudo apt update
 
