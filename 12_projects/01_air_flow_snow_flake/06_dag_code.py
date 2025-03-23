@@ -1,6 +1,7 @@
 Let's navigate to `/home/ubuntu/dags` & create file named `dag_code.py`</br>
 Paste the below code inside this file.
 
+```python
 import logging
 import airflow
 from airflow import DAG
@@ -55,3 +56,4 @@ with dag:
 
 # This is the order of DAG task's that will be run one after the other.
 create_table >> insert_data
+```
