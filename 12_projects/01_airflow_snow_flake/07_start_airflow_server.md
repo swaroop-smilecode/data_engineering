@@ -1,3 +1,5 @@
+You already had putty opened. Go there..
+
 ---------------------------------------------------------------------------------------
 Start airflow webserver
 ```python
