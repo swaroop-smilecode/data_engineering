@@ -1,5 +1,5 @@
 1. Start EC2 instance
-2. Connect to it using putty
+2. Connect to it using putty</br>
     login as: `ubuntu`
     ```python
     source venv/bin/activate
