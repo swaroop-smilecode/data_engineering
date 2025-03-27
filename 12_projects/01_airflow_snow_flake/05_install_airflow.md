@@ -62,5 +62,6 @@ Observe `SCP` protocol is used.
 # Update below properties
 dags_folder = /home/ubuntu/dags
 load_examples = False
+AIRFLOW__CORE__TEST_CONNECTION=Enabled
 ```
 
