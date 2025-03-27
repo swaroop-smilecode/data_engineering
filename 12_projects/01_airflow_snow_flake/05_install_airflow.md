@@ -14,10 +14,10 @@ sudo pip3 install virtualenv
 virtualenv venv 
 source venv/bin/activate
 
-pip install "apache-airflow[postgres]" --constraint \
-"https://raw.githubusercontent.com/apache/airflow/constraints-2.4.3/constraints-3.10.txt"
+pip install "apache-airflow[postgres]==2.5.0" --constraint \
+"https://raw.githubusercontent.com/apache/airflow/constraints-2.5.0/constraints-3.7.txt"
 
-pip install pandas
+pip install pandas apache-airflow-providers-snowflake==2.1.0 snowflake-connector-python==2.5.1 snowflake-sqlalchemy==1.2.5
 pip install apache-airflow-providers-snowflake
 pip install snowflake-connector-python
 pip install snowflake-sqlalchemy
