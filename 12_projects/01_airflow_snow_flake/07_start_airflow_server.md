@@ -1,8 +1,5 @@
 You already had putty opened. Go there..</br>
-Activate venv
-```python
-source venv/bin/activate
-```
+
 ---------------------------------------------------------------------------------------
 Start airflow webserver
 ```python
