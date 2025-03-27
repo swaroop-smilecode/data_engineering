@@ -6,7 +6,7 @@ import logging
 import airflow
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
-from airflow.contrib.operators.snowflake_operator import SnowflakeOperator
+from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 from airflow.contrib.hooks.snowflake_hook import SnowflakeHook
 from datetime import datetime, timedelta
 
@@ -41,19 +41,30 @@ snowflake_query = [
 	"""
 ]
 
+# Get connection to snow_flake
+import snowflake.connector as sf
+conn_object = sf.connect(
+account = "OAYLMLL-AEB33440",
+user = "HEIDI",
+password = "Cooleuroscooleuros1!",
+role = "ACCOUNTADMIN",
+warehouse = "COMPUTE_WH",
+database = "RAMU",
+schema = "PUBLIC"
+)
+
 # We created `dag` object already right?
 with dag:
-	create_table = SnowflakeOperator(
+	create_table = SQLExecuteQueryOperator(
 			task_id="create_table",
-			sql=snowflake_query[0] ,
-			snowflake_conn_id="snowflake_conn"
+			sql=snowflake_query[0],
+			conn_id = "snowflake_conn"
 		)		
-	insert_data = SnowflakeOperator(
+	insert_data = SQLExecuteQueryOperator(
 		task_id="insert_snowflake_data",
-		sql=snowflake_query[1] ,
-		snowflake_conn_id="snowflake_conn"
+		sql=snowflake_query[1],
+                conn_id = "snowflake_conn"
 	)
-
 # This is the order of DAG task's that will be run one after the other.
 create_table >> insert_data
 ```
