@@ -11,9 +11,8 @@ Paste the below code inside this file.
 import logging
 import airflow
 from airflow import DAG
+import snowflake.connector
 from airflow.operators.python_operator import PythonOperator
-from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
-from airflow.contrib.hooks.snowflake_hook import SnowflakeHook
 from datetime import datetime, timedelta
 
 logging.basicConfig(level=logging.INFO)
@@ -38,7 +37,7 @@ snowflake_query = [
 	    create  table if not exists source_table( emp_no int,emp_name text,salary int, hra int ,Dept text);
 	""",
 	"""INSERT INTO source_table VALUES (100, 'A' ,2000, 100,'HR'),
-				(101, 'B' ,5000, 300,'HR'),
+				(101, 'B' ,5000, 300,'HEIDI_HR'),
 				(102, 'C' ,6000, 400,'Sales'),
 				(103, 'D' ,500, 50,'Sales'),
 				(104, 'E' ,15000, 3000,'Tech'),
@@ -47,30 +46,49 @@ snowflake_query = [
 	"""
 ]
 
-# Get connection to snow_flake
-import snowflake.connector as sf
-conn_object = sf.connect(
-account = "OAYLMLL-AEB33440",
-user = "HEIDI",
-password = "",
-role = "ACCOUNTADMIN",
-warehouse = "COMPUTE_WH",
-database = "RAMU",
-schema = "PUBLIC"
-)
+# Function to execute the Snowflake query programmatically
+def execute_snowflake_query(sql_query):
+    # Directly create a connection to Snowflake using the Snowflake Python connector
+    conn = snowflake.connector.connect(
+		account = "OAYLMLL-AEB33440",
+		user = "HEIDI",
+		password = "Cooleuroscooleuros1!",
+		role = "ACCOUNTADMIN",
+		warehouse = "COMPUTE_WH",
+		database = "RAMU",
+		schema = "PUBLIC"
+	)
+    
+    # Create a cursor and execute a SQL query
+    cursor = conn.cursor()
+    sql_query = sql_query
+    cursor.execute(sql_query)
+    
+    # Fetch the result
+    result = cursor.fetchone()
+    print(f"Result: {result}")
+    
+    # Close the cursor and connection
+    cursor.close()
+    conn.close()
 
 # We created `dag` object already right?
 with dag:
-	create_table = SQLExecuteQueryOperator(
-			task_id="create_table",
-			sql=snowflake_query[0],
-			conn_id = "snowflake_conn"
-		)		
-	insert_data = SQLExecuteQueryOperator(
-		task_id="insert_snowflake_data",
-		sql=snowflake_query[1],
-                conn_id = "snowflake_conn"
-	)
+	create_table = PythonOperator(
+        task_id="create_table",
+        python_callable=execute_snowflake_query,
+		op_kwargs={
+            'sql_query': snowflake_query[0]
+        }
+    )
+	insert_data = PythonOperator(
+        task_id="insert_snowflake_data",
+        python_callable=execute_snowflake_query,
+		op_kwargs={
+            'sql_query': snowflake_query[1]
+        }
+    )
+		
 # This is the order of DAG task's that will be run one after the other.
 create_table >> insert_data
 ```
