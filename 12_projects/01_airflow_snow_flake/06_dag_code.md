@@ -1,3 +1,9 @@
+##### Note:
+You need to keep snowflake passowrd here inside the code.</br>
+OR</br>
+Implement this using `.env` file.
+
+----------------------------------------------------------------------------
 Let's navigate to `/home/ubuntu/dags` & create file named `dag_code.py`</br>
 Paste the below code inside this file.
 
@@ -46,7 +52,7 @@ import snowflake.connector as sf
 conn_object = sf.connect(
 account = "OAYLMLL-AEB33440",
 user = "HEIDI",
-password = "Cooleuroscooleuros1!",
+password = "",
 role = "ACCOUNTADMIN",
 warehouse = "COMPUTE_WH",
 database = "RAMU",
