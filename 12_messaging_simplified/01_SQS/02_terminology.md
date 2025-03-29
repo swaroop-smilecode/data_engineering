@@ -18,3 +18,14 @@ It's not advisable to keep working on same message even if the corresponding wor
 There are other messages coming into queue. Why not work on them, instead of working on something whose work can't be completed?
 
 ---------------------------------------------------------------------------------------------------------
+#### Messages in flight
+Let's consider that an consumer has polled for the message from SQS</br>
+Then SQS thinks that the consumer is processing the message, hence it is saying `Messages available = 0` & `Messages in flight = 1`</br>
+If the message got processed successfully, it's the duty of consumer to delete that messages from SQS</br>
+![image](https://github.com/user-attachments/assets/b3ddecef-4ffe-4196-b460-0e8e479618e8)
+
+SQS will keep checking, whether the message got deleted from queue / not after the `Visibility timeout`</br>
+If available, then the screen looks like this:
+![image](https://github.com/user-attachments/assets/f6105443-fa80-43d8-83f9-743b09d29a95)
+
+---------------------------------------------------------------------------------------------------------
