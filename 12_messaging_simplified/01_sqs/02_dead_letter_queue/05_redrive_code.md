@@ -26,9 +26,13 @@ s3= boto3.client('s3',aws_access_key_id='',
 aws_secret_access_key='', region_name='us-east-2')
 
 # Assign values to variables in below code.
-sqs_dlq= ""
-sqs_source_queue=""
-s3_prefix_stage=''
-s3_bucket=""
+sqs_dlq = "<url_of_dlq>"
+sqs_source_queue = "<url_of_sqs>"
+s3_prefix_stage = "unprocessedmessages"
+                  # folder_path_starting_from_bucket_name.
+                  # Yes, just from bucket name, it's enough.
+                  # Since bucket name is unique one across the wolrd,
+                  # AWS knows how to find your bucket even if you just specify the bucket name>"
+s3_bucket="<bucket_name>"
 max_retries=
 ```
