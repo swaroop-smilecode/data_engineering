@@ -3,15 +3,6 @@ I am not explaining this architecture, because it's self understandable by readi
 
 ![image](https://github.com/user-attachments/assets/35507299-71c3-471c-a273-213f94045b8a)
 
-#### Creating SQS & DLQ
-As a first step, let's create 2 queues</br>
-`sourceQueue`</br>
-`dlqQueue`
-
-Very important point to understand here is: There is no such queue named DLQ separately in AWS.</br>
-It's an concept. DLQ is nothing but an regular queue, but the purpose for which that queue used is different,</br>
-Hence named DLQ.
-
 #### Publisher code
 ```python
 pip install boto3
