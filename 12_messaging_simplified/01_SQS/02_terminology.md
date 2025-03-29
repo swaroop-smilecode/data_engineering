@@ -28,4 +28,9 @@ SQS will keep checking, whether the message got deleted from queue / not after t
 If available, then the screen looks like this:
 ![image](https://github.com/user-attachments/assets/f6105443-fa80-43d8-83f9-743b09d29a95)
 
+#### ReceiptHandle
+For each message that is stored inside of SQS, an attribute named `ReceiptHandle` is added to that message to uniquely identify the message.</br>
+That's the attribute, based on which consumer can delete the message from queue, if it processed succesfully.
+![image](https://github.com/user-attachments/assets/130a4ae4-2e2e-4a35-ae73-dfc647529978)
+
 ---------------------------------------------------------------------------------------------------------
