@@ -9,7 +9,7 @@ import traceback
 import datetime
 from datetime import date
 
-# Month abbreviation, day and year
+# I need this d4 later in the code to create `s3_key`
 today = date.today()	
 d4 = today.strftime("%b-%d-%Y")
 
@@ -47,8 +47,10 @@ def sendAndDeleteQueue(sendQueueUrl,messageBody,messageAttributes,recieveQueueUr
     sqs_client.delete_message(QueueUrl=recieveQueueUrl,
                               ReceiptHandle=receiptHandle)
 
-# This is our main code
-# 
+# The code present in this function, should ideally be inside lambda pointed at the picture pasted below
+# Now, how to understand this code?
+# See the text in architecture diagram. I have explained neatly
+# Whatever is there, we just converted into code
 def process_sqs_message(sqs_source_queue, sqs_dlq):
     while True:
         messages = sqs_client.receive_message(
@@ -117,3 +119,4 @@ def process_sqs_message(sqs_source_queue, sqs_dlq):
 
 process_sqs_message(sqs_source_queue,sqs_dlq)
 ``` 
+![image](https://github.com/user-attachments/assets/a5bd3757-a347-4949-8cda-ab66bfd4fb0d)
