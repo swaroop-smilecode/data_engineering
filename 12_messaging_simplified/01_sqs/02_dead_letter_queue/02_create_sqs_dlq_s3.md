@@ -9,4 +9,7 @@ Hence named DLQ.
 
 #### Create s3 bucket
 - Create s3 bucket named `redrivepurge`
-- Create folder named `unprocessedmessages`. This is your `bucket_prefix` if you want to refer to this path any where.
+- Create folder named `unprocessedmessages`.
+- Note:
+  `s3_prefix_stage` : As per convention, this property is used to represent path upto `bucket_name/folder_name`</br>
+  `s3_key` : As per convention, this property is used to represent path upto `bucket_name/folder_name/<another_folder_name>/<file_name.json>`
