@@ -1,9 +1,17 @@
-This is what the below code does.
+Let me explain this lambda code.</br>
+
+We know that, message is sent from SQS to lambda.</br>
+This message is performing 2 duties</br>
+    1. Triggering lambda</br>
+    2. Acts as input for lambda code(`event` object)</br>
+
+All that this lambda code doing is just extracting required data from `event` object & printing it.</br>
+That printed information can be seen in cloud watch logs.
+
 ```python
 import json
 
 def lambda_handler(event, context):
-    TODO implement
     print(event)
     try:
         for i in event['Records']:
