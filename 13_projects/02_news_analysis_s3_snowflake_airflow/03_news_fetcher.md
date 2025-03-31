@@ -1,3 +1,12 @@
+Below is the code which will hit news API --> Results are stored in file named `news_data.parquet` at the location</br>
+output_file = `"/home/ubuntu/news_data.parquet"`</br>
+Will be running this code in an EC2 instance which is ubuntu. That's the reason the path is like mentioned above.</br>
+But, for testing purpose, we want to run this code in our windows system.</br>  
+For that testing purpose, there is a commented path just above the ubuntu respective path.</br>
+`# output_file = "C:/Users/swaro/desktop/news_data.parquet"`</br>
+Use this path.
+
+```python
 import pandas as pd
 import json
 import requests
@@ -7,7 +16,6 @@ import datetime
 from datetime import date
 import uuid
 import os
-
 
 def runner():
     today = date.today()
@@ -74,5 +82,5 @@ def runner():
     df1 = df.drop_duplicates()
     df1.to_parquet(output_file)
 
-
 runner()
+```
