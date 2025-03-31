@@ -17,6 +17,7 @@ from datetime import date
 import uuid
 import os
 
+
 def runner():
     today = date.today()
     api_key = "e8a31ac3c9a04c489fddc298a5058af1"
@@ -77,10 +78,12 @@ def runner():
             ignore_index=True,
         )
 
-    # output_file = "C:/Users/swaro/desktop/news_data.parquet"
-    output_file = "/home/ubuntu/news_data.parquet"
+    filename = str(uuid.uuid4())
+    # output_file = "C:/Users/swaro/desktop/{}.parquet".format(filename)
+    output_file = "/home/ubuntu/{}.parquet".format(filename)
     df1 = df.drop_duplicates()
     df1.to_parquet(output_file)
+
 
 runner()
 ```
