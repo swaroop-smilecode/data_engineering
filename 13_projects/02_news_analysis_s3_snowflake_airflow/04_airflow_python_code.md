@@ -19,8 +19,6 @@ dag = DAG(
 )
 
 
-
-
 with dag:
 
 	extract_news_info = PythonOperator(
@@ -36,7 +34,9 @@ with dag:
 	
 	snowflake_create_table=SnowflakeOperator(
 		task_id="snowflake_create_table",
-		sql="""create  table if not exists helloparquet using template(select ARRAY_AGG(OBJECT_CONSTRUCT(*)) from TABLE(INFER_SCHEMA (LOCATION=>'@ramu.PUBLIC.snow_simple',FILE_FORMAT=>'parquet_format')))
+		sql="""create  table if not exists helloparquet 
+		       using template(select ARRAY_AGG(OBJECT_CONSTRUCT(*)) 
+			   from TABLE(INFER_SCHEMA (LOCATION=>'@ramu.PUBLIC.snow_simple',FILE_FORMAT=>'parquet_format')))
         """ ,
 		snowflake_conn_id="snowflake_conn"
 	)
@@ -44,7 +44,10 @@ with dag:
 	
 	snowflake_copy=SnowflakeOperator(
 		task_id="snowflake_copy",
-		sql="""copy into ramu.PUBLIC.helloparquet from @ramu.PUBLIC.snow_simple MATCH_BY_COLUMN_NAME=CASE_INSENSITIVE FILE_FORMAT=parquet_format
+		sql="""copy into ramu.PUBLIC.helloparquet 
+		       from @ramu.PUBLIC.snow_simple 
+			   MATCH_BY_COLUMN_NAME=CASE_INSENSITIVE 
+			   FILE_FORMAT=parquet_format
         """ ,
 		snowflake_conn_id="snowflake_conn"
 	)
