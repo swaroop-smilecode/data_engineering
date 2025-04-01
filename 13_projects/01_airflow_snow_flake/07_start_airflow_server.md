@@ -1,5 +1,7 @@
-You already had putty opened. Go there..</br>
-
+Navigate to `airflow` folder
+```python
+cd airflow
+```
 ---------------------------------------------------------------------------------------
 Start airflow webserver
 ```python
