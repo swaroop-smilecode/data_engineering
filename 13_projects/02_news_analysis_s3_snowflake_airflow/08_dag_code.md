@@ -5,9 +5,8 @@ In side the linux server which is running on EC2, save the below file at locatio
 import logging
 import airflow
 from airflow import DAG
+import snowflake.connector
 from airflow.operators.python_operator import PythonOperator
-from airflow.contrib.operators.snowflake_operator import SnowflakeOperator
-from airflow.contrib.hooks.snowflake_hook import SnowflakeHook
 from airflow.operators.bash_operator import BashOperator
 from datetime import datetime, timedelta
 from news_fetcher_etl import runner
@@ -22,6 +21,33 @@ dag = DAG(
 )
 
 
+# Function to execute the Snowflake query programmatically
+def execute_snowflake_query(sql_query):
+    # Directly create a connection to Snowflake using the Snowflake Python connector
+    conn = snowflake.connector.connect(
+		account = "OAYLMLL-AEB33440",
+		user = "HEIDI",
+		password = "Cooleuroscooleuros1!",
+		role = "ACCOUNTADMIN",
+		warehouse = "COMPUTE_WH",
+		database = "RAMU",
+		schema = "PUBLIC"
+	)
+    
+    # Create a cursor and execute a SQL query
+    cursor = conn.cursor()
+    sql_query = sql_query
+    cursor.execute(sql_query)
+    
+    # Fetch the result
+    result = cursor.fetchone()
+    print(f"Result: {result}")
+    
+    # Close the cursor and connection
+    cursor.close()
+    conn.close()
+
+
 with dag:
 
 	extract_news_info = PythonOperator(
@@ -34,26 +60,29 @@ with dag:
 	task_id="move_file_to_s3",
 	bash_command='aws s3 mv {{ ti.xcom_pull("extract_news_info")}}  s3://irisseta',
 	)
-	
-	snowflake_create_table=SnowflakeOperator(
-		task_id="snowflake_create_table",
-		sql="""create  table if not exists helloparquet 
-		       using template(select ARRAY_AGG(OBJECT_CONSTRUCT(*)) 
-			   from TABLE(INFER_SCHEMA (LOCATION=>'@ramu.PUBLIC.snow_simple',FILE_FORMAT=>'parquet_format')))
-        """ ,
-		snowflake_conn_id="snowflake_conn"
-	)
-	
-	
-	snowflake_copy=SnowflakeOperator(
-		task_id="snowflake_copy",
-		sql="""copy into ramu.PUBLIC.helloparquet 
-		       from @ramu.PUBLIC.snow_simple 
-			   MATCH_BY_COLUMN_NAME=CASE_INSENSITIVE 
-			   FILE_FORMAT=parquet_format
-        """ ,
-		snowflake_conn_id="snowflake_conn"
-	)
+
+	snowflake_create_table = PythonOperator(
+        	task_id="snowflake_create_table",
+        	python_callable=execute_snowflake_query,
+            	op_kwargs={
+            	'sql_query': """create  table if not exists helloparquet 
+                            	using template(select ARRAY_AGG(OBJECT_CONSTRUCT(*)) 
+				from TABLE(INFER_SCHEMA (LOCATION=>'@ramu.PUBLIC.snow_simple',FILE_FORMAT=>'parquet_format')))
+                            """ 
+                         }
+    		)
+
+	snowflake_copy = PythonOperator(
+        	task_id="snowflake_copy",
+        	python_callable=execute_snowflake_query,
+		op_kwargs={
+            	'sql_query': """copy into ramu.PUBLIC.helloparquet 
+		       		from @ramu.PUBLIC.snow_simple 
+			   	MATCH_BY_COLUMN_NAME=CASE_INSENSITIVE 
+			   	FILE_FORMAT=parquet_format
+                             """
+			}
+    		)
 	
 
 extract_news_info >> move_file_to_s3 >> snowflake_create_table >> snowflake_copy
