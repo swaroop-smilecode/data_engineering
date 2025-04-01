@@ -1,6 +1,10 @@
 1. Login `https://oaylmll-aeb33440.snowflakecomputing.com/console/login#/`
+2. One of the snow flake query requires s3 bucket named `irisseta-heidi`.</br>
+   So, before executing those queries, create this bucket in AWS.</br>
+   Also, include AWS access key & security key in the query before executing.
+   
 
-2. For the first time, select SQL Worksheet & execute below code.
+4. For the first time, select SQL Worksheet & execute below code.
     ```python
     # Drop database if required
       drop database if exists ramu;
@@ -10,9 +14,8 @@
       use ramu;
       create file format parquet_format TYPE=parquet;
     # stage creation
-      create or replace stage ramu.PUBLIC.snow_simple url="s3://{}/" 
-      credentials=(aws_key_id='{}'
-      aws_secret_key='{}');
+      create or replace stage ramu.PUBLIC.snow_simple url="s3://irisseta-heidi/" 
+      credentials=(aws_key_id='', aws_secret_key='');
     # Check the data present in S3
       list @ramu.PUBLIC.snow_simple;
     ```
