@@ -3,6 +3,7 @@
     login as: `ubuntu`
     ```python
     source venv/bin/activate
+    cd airflow
     
     airflow db init
     airflow webserver
@@ -14,6 +15,7 @@
     login as: `ubuntu`
     ```python
     source venv/bin/activate
+    cd airflow
     
     airflow scheduler
     ```
