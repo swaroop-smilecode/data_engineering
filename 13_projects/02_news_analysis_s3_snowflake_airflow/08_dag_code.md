@@ -1,6 +1,6 @@
 In side the linux server which is running on EC2, save the below file at location `/home/ubuntu/dags`
 
-#### airflow_news_data_pipeline.py
+#### dag_code.py
 ```python
 import logging
 import airflow
