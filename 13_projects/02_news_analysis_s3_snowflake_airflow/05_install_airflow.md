@@ -18,9 +18,7 @@ pip install "apache-airflow[postgres]==2.5.0" --constraint \
 "https://raw.githubusercontent.com/apache/airflow/constraints-2.5.0/constraints-3.7.txt"
 
 pip install pandas apache-airflow-providers-snowflake==2.1.0 snowflake-connector-python==2.5.1 snowflake-sqlalchemy==1.2.5
-pip install apache-airflow-providers-snowflake
-pip install snowflake-connector-python
-pip install snowflake-sqlalchemy
+pip  install pyarrow fastparquet
 
 airflow db init
 
