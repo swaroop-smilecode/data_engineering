@@ -1,3 +1,8 @@
+Activate python virtual environment
+```python
+source venv/bin/activate
+```
+---------------------------------------------------------------------------------------
 Navigate to `airflow` folder
 ```python
 cd airflow
