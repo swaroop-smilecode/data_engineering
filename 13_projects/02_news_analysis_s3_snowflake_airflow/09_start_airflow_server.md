@@ -22,6 +22,10 @@ Start airflow scheduler server
 ```python
 # Activate python virtual environment.
 source venv/bin/activate
+
+# Navigate to airflow folder
+cd airflow
+
 # Start airflow `scheduler server`
 airflow scheduler
 ```
