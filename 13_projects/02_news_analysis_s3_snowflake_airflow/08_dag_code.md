@@ -1,9 +1,8 @@
 Save the file at `/home/ubuntu/dags`</br>
 There is a variable named password in the below code, which holds snowflake password. Assign password value to that variable.
 
-# Include below things before running the code. 
-- snowflake.connector.connect(password="<>")
-- 
+#### Include below in the code
+snowflake.connector.connect(password="<>")
 
 #### dag_code.py
 ```python
