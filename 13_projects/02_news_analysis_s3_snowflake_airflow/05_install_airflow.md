@@ -61,5 +61,7 @@ Observe `SCP` protocol is used.
 dags_folder = /home/ubuntu/dags
 load_examples = False
 AIRFLOW__CORE__TEST_CONNECTION=Enabled
+
+aws configure
 ```
 
