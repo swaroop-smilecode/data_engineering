@@ -10,7 +10,7 @@ import snowflake.connector
 from airflow.operators.python_operator import PythonOperator
 from airflow.operators.bash_operator import BashOperator
 from datetime import datetime, timedelta
-from news_fetcher_etl import runner
+from news_fetcher_py import runner
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
@@ -28,7 +28,7 @@ def execute_snowflake_query(sql_query):
     conn = snowflake.connector.connect(
 		account = "OAYLMLL-AEB33440",
 		user = "HEIDI",
-		password = "",
+		password = "Cooleuroscooleuros1!",
 		role = "ACCOUNTADMIN",
 		warehouse = "COMPUTE_WH",
 		database = "RAMU",
@@ -52,15 +52,15 @@ def execute_snowflake_query(sql_query):
 with dag:
 
 	extract_news_info = PythonOperator(
-	task_id='extract_news_info',
-	python_callable=runner,
-	dag=dag, 
-	)
+		task_id='extract_news_info',
+		python_callable=runner,
+		dag=dag, 
+		)
 		
 	move_file_to_s3 = BashOperator(
-	task_id="move_file_to_s3",
-	bash_command='aws s3 mv {{ ti.xcom_pull("extract_news_info")}}  s3://irisseta',
-	)
+		task_id="move_file_to_s3",
+		bash_command='aws s3 mv {{ ti.xcom_pull("extract_news_info")}}  s3://irisseta-heidi',
+		)
 
 	snowflake_create_table = PythonOperator(
         	task_id="snowflake_create_table",
