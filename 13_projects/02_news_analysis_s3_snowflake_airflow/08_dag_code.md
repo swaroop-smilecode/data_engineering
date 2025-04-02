@@ -1,6 +1,10 @@
 Save the file at `/home/ubuntu/dags`</br>
 There is a variable named password in the below code, which holds snowflake password. Assign password value to that variable.
 
+# Include below things before running the code. 
+- snowflake.connector.connect(password="<>")
+- 
+
 #### dag_code.py
 ```python
 import logging
@@ -28,7 +32,7 @@ def execute_snowflake_query(sql_query):
     conn = snowflake.connector.connect(
 		account = "OAYLMLL-AEB33440",
 		user = "HEIDI",
-		password = "Cooleuroscooleuros1!",
+		password = "",
 		role = "ACCOUNTADMIN",
 		warehouse = "COMPUTE_WH",
 		database = "RAMU",
