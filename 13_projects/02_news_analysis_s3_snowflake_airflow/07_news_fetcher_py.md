@@ -86,5 +86,8 @@ def runner():
     df1.to_parquet(output_file)
 
 
+    return output_file
+
+
 runner()
 ```
