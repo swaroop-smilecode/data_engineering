@@ -5,7 +5,14 @@
   "Ec2SubnetId": "default_vpc-subnet-public1-us-east-1a"
   LogUri="s3://logs-heidi/"
   ```
+- Open the file `ingest_code.md`
+  This file contains the code of `ingest.ssh`
+  Upload this file to s3 bucket 
 
+- Open the file `transform_code.md`
+  This file contains the code of `transform.py`
+  Upload this file to s3 bucket
+  
 #### dag_code.py
 ```python
 import boto3
