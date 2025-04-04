@@ -5,6 +5,13 @@
   "Ec2SubnetId": "default_vpc-subnet-public1-us-east-1a"
   LogUri="s3://logs-heidi/"
   ```
+- ```python
+    op_args=[
+      '{{ ti.xcom_pull("create_emr_cluster")["JobFlowId"]}}',
+      "s3://us-east-1.elasticmapreduce/libs/script-runner/script-runner.jar",
+      ["s3://irisseta/scripts/ingest.sh"],
+    ],
+  ```
 - Open the file `ingest_code.md`
   This file contains the code of `ingest.ssh`
   Upload this file to s3 bucket 
